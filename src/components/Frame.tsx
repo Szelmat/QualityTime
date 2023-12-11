@@ -18,7 +18,7 @@ export const Frame = () => {
 
           <Flex align="center" gap="md" mr="5px">
             <Switch
-              size="md"
+              size="lg"
               onLabel="24H"
               offLabel="12H"
               defaultChecked
