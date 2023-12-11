@@ -11,7 +11,7 @@ export const ImportMenu = () => {
     <>
       <Menu>
         <Menu.Target>
-          <Button>Import</Button>
+          <Button size="sm">Import</Button>
         </Menu.Target>
 
         <Menu.Dropdown>

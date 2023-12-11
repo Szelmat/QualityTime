@@ -14,11 +14,11 @@ export const Frame = () => {
     <AppShell padding="md">
       <AppShell.Header>
         <Flex justify="space-between" align="center" ml="5px">
-          <Title order={1}>QualityTime</Title>
+          <Title order={3}>QualityTime</Title>
 
           <Flex align="center" gap="md" mr="5px">
             <Switch
-              size="lg"
+              size="md"
               onLabel="24H"
               offLabel="12H"
               defaultChecked
@@ -37,7 +37,7 @@ export const Frame = () => {
       <AppShell.Main
         style={{
           padding: 0,
-          paddingTop: 70,
+          paddingTop: 50,
         }}
       >
         <Calendar />
