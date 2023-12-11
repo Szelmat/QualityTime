@@ -15,7 +15,7 @@ export const ImportMenu = () => {
         </Menu.Target>
 
         <Menu.Dropdown>
-          <Menu.Item>
+          <Menu.Item disabled>
             <Flex align="center" gap="md">
               <IconUpload />
               Upload From My Computer
@@ -25,7 +25,7 @@ export const ImportMenu = () => {
 
           <Menu.Divider />
 
-          <Menu.Item>
+          <Menu.Item disabled>
             <Flex align="center" gap="md">
               <IconBrandGoogle />
               Connect Google Calendar
@@ -33,7 +33,7 @@ export const ImportMenu = () => {
             </Flex>
           </Menu.Item>
 
-          <Menu.Item>
+          <Menu.Item disabled>
             <Flex align="center" gap="md">
               <IconBrandOffice />
               Connect Microsoft Office
