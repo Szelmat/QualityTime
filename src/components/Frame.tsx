@@ -5,12 +5,13 @@ import { ImportMenu } from "./ImportMenu";
 import { useContext } from "react";
 import { HourFormatContext } from "../contexts/HourFormatContext";
 import { HourFormatEnum } from "../types/enums/HourFormatEnum";
+import { CalendarHeader } from "./CalendarHeader";
 
 export const Frame = () => {
   const { setCurrentHourFormat } = useContext(HourFormatContext);
 
   return (
-    <AppShell header={{ height: 50 }} padding="md">
+    <AppShell padding="md">
       <AppShell.Header>
         <Flex justify="space-between" align="center" ml="5px">
           <Title order={1}>QualityTime</Title>
@@ -30,9 +31,15 @@ export const Frame = () => {
             <ImportMenu />
           </Flex>
         </Flex>
+        <CalendarHeader />
       </AppShell.Header>
 
-      <AppShell.Main>
+      <AppShell.Main
+        style={{
+          padding: 0,
+          paddingTop: 70,
+        }}
+      >
         <Calendar />
       </AppShell.Main>
     </AppShell>
