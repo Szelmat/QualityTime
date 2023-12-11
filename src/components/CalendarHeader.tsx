@@ -1,8 +1,12 @@
-import { Flex } from "@mantine/core";
+import { Flex, Title, Text } from "@mantine/core";
 import { format } from "date-fns";
-import { enUS } from "date-fns/locale";
+import { getCurrentWeekDays } from "../util/WeekDays";
+import { useState } from "react";
+import { WeekDay } from "../types/WeekDay";
 
 export const CalendarHeader = () => {
+  const [currentWeekDays] = useState<WeekDay[]>(getCurrentWeekDays());
+
   return (
     <Flex direction="column">
       <Flex
@@ -10,7 +14,15 @@ export const CalendarHeader = () => {
         justify="center"
         style={{ border: "1px solid black" }}
       >
-        {format(new Date(), "yyyy LLLL", { locale: enUS })}
+        <Title order={3}>{format(new Date(), "yyyy LLLL")}</Title>
+      </Flex>
+      <Flex justify="space-evenly">
+        {currentWeekDays.map((weekDay) => (
+          <Flex direction="column" justify="center" align="center">
+            <Title order={4}>{weekDay.date}</Title>
+            <Text>{weekDay.weekDayName}</Text>
+          </Flex>
+        ))}
       </Flex>
     </Flex>
   );

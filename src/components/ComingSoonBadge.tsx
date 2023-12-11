@@ -1,3 +1,7 @@
 import { Badge } from "@mantine/core";
 
-export const ComingSoonBadge = () => <Badge color="blue">Coming Soon</Badge>;
+export const ComingSoonBadge = () => (
+  <Badge size="xs" color="blue">
+    Coming Soon
+  </Badge>
+);

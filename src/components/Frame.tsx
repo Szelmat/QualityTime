@@ -37,7 +37,7 @@ export const Frame = () => {
       <AppShell.Main
         style={{
           padding: 0,
-          paddingTop: 50,
+          paddingTop: 120,
         }}
       >
         <Calendar />
