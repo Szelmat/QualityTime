@@ -2,16 +2,19 @@ import { Button, Flex, Menu } from "@mantine/core";
 import {
   IconBrandGoogle,
   IconBrandOffice,
+  IconFileImport,
   IconUpload,
 } from "@tabler/icons-react";
 import { ComingSoonBadge } from "./ComingSoonBadge";
 
-export const ImportMenu = () => {
+export const ActionsMenu = () => {
   return (
     <>
       <Menu>
         <Menu.Target>
-          <Button size="sm">Import</Button>
+          <Button leftSection={<IconFileImport size={18} />} size="sm">
+            Import
+          </Button>
         </Menu.Target>
 
         <Menu.Dropdown>

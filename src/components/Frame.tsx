@@ -1,43 +1,60 @@
-import { AppShell, Flex, Switch, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  AppShell,
+  Burger,
+  CloseButton,
+  Flex,
+  Title,
+} from "@mantine/core";
 import "@mantine/core/styles/AppShell.css";
 import { Calendar } from "./Calendar";
-import { ImportMenu } from "./ImportMenu";
-import { useContext } from "react";
-import { HourFormatContext } from "../contexts/HourFormatContext";
-import { HourFormatEnum } from "../types/enums/HourFormatEnum";
+import { ActionsMenu } from "./ImportMenu";
 import { CalendarHeader } from "./CalendarHeader";
+import format from "date-fns/format";
+import { IconMenu2 } from "@tabler/icons-react";
+import { useDisclosure } from "@mantine/hooks";
+import { HourFormatToggleSwitch } from "./HourFormatToggleSwitch";
 
 export const Frame = () => {
-  const { setCurrentHourFormat } = useContext(HourFormatContext);
+  const [opened, { toggle }] = useDisclosure();
 
   return (
-    <AppShell padding="md">
+    <AppShell
+      padding="md"
+      navbar={{
+        width: 300,
+        breakpoint: "sm",
+        collapsed: {
+          mobile: !opened,
+          desktop: !opened,
+        },
+      }}
+    >
       <AppShell.Header>
         <Flex justify="space-between" align="center" ml="5px">
-          <Title order={3}>QualityTime</Title>
+          <Burger opened={opened} onClick={toggle} size="sm" mr={76} />
+          <Title order={3}>{format(new Date(), "yyyy LLLL")}</Title>
 
           <Flex align="center" gap="md" mr="5px">
-            <Switch
-              size="lg"
-              onLabel="24H"
-              offLabel="12H"
-              defaultChecked
-              onChange={({ target: { checked } }) => {
-                checked
-                  ? setCurrentHourFormat(HourFormatEnum.TWENTY_FOUR_HOUR)
-                  : setCurrentHourFormat(HourFormatEnum.TWELVE_HOUR);
-              }}
-            />
-            <ImportMenu />
+            <ActionsMenu />
           </Flex>
         </Flex>
         <CalendarHeader />
       </AppShell.Header>
 
+      <AppShell.Navbar p="md">
+        <CloseButton onClick={() => toggle()} />
+        <Flex direction="column" align="center">
+          <Flex>
+            <HourFormatToggleSwitch label="Hour Format:" />
+          </Flex>
+        </Flex>
+      </AppShell.Navbar>
+
       <AppShell.Main
         style={{
           padding: 0,
-          paddingTop: 120,
+          paddingTop: 79,
         }}
       >
         <Calendar />
