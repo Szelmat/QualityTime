@@ -1,4 +1,4 @@
-import { Card, Flex } from "@mantine/core";
+import { Card, Flex, Paper } from "@mantine/core";
 import { useContext, useEffect, useState } from "react";
 import { HourFormatContext } from "../contexts/HourFormatContext";
 import { getHoursInADay } from "../util/Hours";
@@ -14,7 +14,7 @@ export const HoursPane = () => {
   return (
     <Flex direction="column">
       {hours.map((hourTag) => (
-        <Card key={hourTag}>{hourTag}</Card>
+        <Paper key={hourTag} p={0} h={100}>{hourTag}</Paper>
       ))}
     </Flex>
   );

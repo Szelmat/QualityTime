@@ -1,5 +1,4 @@
 import {
-  ActionIcon,
   AppShell,
   Burger,
   CloseButton,
@@ -11,7 +10,6 @@ import { Calendar } from "./Calendar";
 import { ActionsMenu } from "./ImportMenu";
 import { CalendarHeader } from "./CalendarHeader";
 import format from "date-fns/format";
-import { IconMenu2 } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 import { HourFormatToggleSwitch } from "./HourFormatToggleSwitch";
 
@@ -21,7 +19,7 @@ export const Frame = () => {
   return (
     <AppShell
       padding="md"
-      navbar={{
+      aside={{
         width: 300,
         breakpoint: "sm",
         collapsed: {
@@ -42,14 +40,14 @@ export const Frame = () => {
         <CalendarHeader />
       </AppShell.Header>
 
-      <AppShell.Navbar p="md">
+      <AppShell.Aside p="md">
         <CloseButton onClick={() => toggle()} />
         <Flex direction="column" align="center">
           <Flex>
             <HourFormatToggleSwitch label="Hour Format:" />
           </Flex>
         </Flex>
-      </AppShell.Navbar>
+      </AppShell.Aside>
 
       <AppShell.Main
         style={{
